@@ -8,9 +8,63 @@ body {
     margin: 0 auto;
 }
 
-table {
+.title {
+    text-align: center;
+}
+
+.form__products {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form__products-input {
+    padding: 7px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form__products-btn {
+    margin: 12px 0 19px 0;
+    padding: 12px 7px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: #5ade5d;
+    border-radius: 12px;
+}
+
+.form__products-btn:hover {
+    background-color: #4ecf4e;
+}
+
+.product__table {
     width: 100%;
     border-collapse: collapse;
+}
+
+.product__table-actions {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+}
+
+.product__table-action--update {
+    color: rgb(0, 0, 255);
+    font-size: 18px;
+}
+
+.product__table-action--update:hover {
+    color: rgb(0, 0, 200);
+}
+
+.product__table-action--delete {
+    color: rgb(255, 0, 0);
+    font-size: 18px;
+}
+
+.product__table-action--delete:hover {
+    color: rgb(200, 0, 0);
 }
 
 table, th, td {

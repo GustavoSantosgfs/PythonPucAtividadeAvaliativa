@@ -1,31 +1,34 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<h1>Products</h1>
-<form action="/add" method="post">
-    <label for="code">Code:</label>
-    <input type="text" name="code" required>
-    <label for="name">Name:</label>
-    <input type="text" name="name" required>
-    <label for="price">Price:</label>
-    <input type="text" name="price" required>
-    <button type="submit">Add Product</button>
+<h1 class="title">Produtos</h1>
+<form class="form__products" action="/add" method="post">
+    <label for="code">Código:</label>
+    <input class="form__products-input" type="text" name="code" required>
+    <label for="name">Descrição:</label>
+    <input class="form__products-input" type="text" name="name" required>
+    <label for="price">Preço:</label>
+    <input class="form__products-input" type="text" name="price" required>
+    <button class="form__products-btn" type="submit">Adicionar Produto</button>
 </form>
-<table>
+<table class="product__table">
     <tr>
-        <th>Code</th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Actions</th>
+        <th>Código</th>
+        <th>Descrição</th>
+        <th>Preço</th>
     </tr>
     {% for product in products %}
     <tr>
         <td>{{ product[0] }}</td>
         <td>{{ product[1] }}</td>
         <td>{{ product[2] }}</td>
-        <td>
-            <a href="{{ url_for('update_product', code=product[0]) }}">Edit</a>
-            <a href="{{ url_for('delete_product', code=product[0]) }}" onclick="return confirm('Are you sure?')">Delete</a>
+        <td class="product__table-actions">
+            <a class="product__table-action--update" href="{{ url_for('update_product', code=product[0]) }}">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </a>
+            <a class="product__table-action--delete" href="{{ url_for('delete_product', code=product[0]) }}" onclick="return confirm('Are you sure?')">
+                <i class="fa-solid fa-trash"></i>
+            </a>
         </td>
     </tr>
     {% endfor %}

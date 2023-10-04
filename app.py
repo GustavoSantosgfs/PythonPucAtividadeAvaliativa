@@ -27,7 +27,7 @@ def add_product():
         with sqlite3.connect(DATABASE) as conn:
             conn.execute("INSERT INTO products (code, name, price) VALUES (?, ?, ?)", (code, name, price))
             conn.commit()
-        flash('Product added successfully!')
+        flash('Produto adicionado com sucesso!')
     return redirect(url_for('index'))
 
 @app.route('/update/<int:code>', methods=['GET', 'POST'])
@@ -39,7 +39,7 @@ def update_product(code):
         with sqlite3.connect(DATABASE) as conn:
             conn.execute("UPDATE products SET name = ?, price = ? WHERE code = ?", (name, price, code))
             conn.commit()
-        flash('Product updated successfully!')
+        flash('Produto atualizado com sucesso!')
         return redirect(url_for('index'))
     return render_template('update_product.html', product=product)
 
@@ -48,7 +48,7 @@ def delete_product(code):
     with sqlite3.connect(DATABASE) as conn:
         conn.execute("DELETE FROM products WHERE code = ?", (code,))
         conn.commit()
-    flash('Product deleted successfully!')
+    flash('Produto deletado com sucesso!')
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
