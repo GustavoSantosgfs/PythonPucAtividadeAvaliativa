@@ -3,9 +3,9 @@
 {% block content %}
 <h1 class="title">Editar Produto</h1>
 <form class="form__products" action="{{ url_for('update_product', code=product[0]) }}" method="post">
-    <label for="name">Descrição:</label>
+    <label class="form__products-label" for="name">Descrição:</label>
     <input class="form__products-input" type="text" name="name" value="{{ product[1] }}" required>
-    <label for="price">Preço:</label>
+    <label class="form__products-label" for="price">Preço:</label>
     <input class="form__products-input" type="text" name="price" value="{{ product[2] }}" required>
     <button class="form__products-btn" type="submit">Salvar</button>
 </form>

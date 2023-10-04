@@ -18,6 +18,10 @@ body {
     gap: 7px;
 }
 
+.form__products-label {
+    margin-top: 7px;
+}
+
 .form__products-input {
     padding: 7px;
     border: 1px solid #ccc;
