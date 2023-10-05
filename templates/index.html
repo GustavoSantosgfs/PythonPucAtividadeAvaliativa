@@ -5,8 +5,8 @@
 <form class="form__products" action="/add" method="post">
     <label class="form__products-label" for="code">Código:</label>
     <input class="form__products-input" type="text" name="code" required>
-    <label class="form__products-label" for="name">Descrição:</label>
-    <input class="form__products-input" type="text" name="name" required>
+    <label class="form__products-label" for="description">Descrição:</label>
+    <input class="form__products-input" type="text" name="description" required>
     <label class="form__products-label" for="price">Preço:</label>
     <input class="form__products-input" type="text" name="price" required>
     <button class="form__products-btn" type="submit">Adicionar Produto</button>
@@ -26,7 +26,7 @@
             <a class="product__table-action--update" href="{{ url_for('update_product', code=product[0]) }}">
                 <i class="fa-solid fa-pen-to-square"></i>
             </a>
-            <a class="product__table-action--delete" href="{{ url_for('delete_product', code=product[0]) }}" onclick="return confirm('Are you sure?')">
+            <a class="product__table-action--delete" href="{{ url_for('delete_product', code=product[0]) }}" onclick="return confirm('Você tem certeza?')">
                 <i class="fa-solid fa-trash"></i>
             </a>
         </td>

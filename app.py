@@ -22,22 +22,22 @@ def index():
 def add_product():
     if request.method == 'POST':
         code = request.form['code']
-        name = request.form['name']
+        description = request.form['description']
         price = request.form['price']
         with sqlite3.connect(DATABASE) as conn:
-            conn.execute("INSERT INTO products (code, name, price) VALUES (?, ?, ?)", (code, name, price))
+            conn.execute("INSERT INTO products (code, description, price) VALUES (?, ?, ?)", (code, description, price))
             conn.commit()
         flash('Produto adicionado com sucesso!')
     return redirect(url_for('index'))
 
 @app.route('/update/<int:code>', methods=['GET', 'POST'])
 def update_product(code):
-    product = query_db('select * from products where code = ?', [code], one=True)
+    product = query_db('SELECT * FROM products WHERE code = ?', [code], one=True)
     if request.method == 'POST':
-        name = request.form['name']
+        description = request.form['description']
         price = request.form['price']
         with sqlite3.connect(DATABASE) as conn:
-            conn.execute("UPDATE products SET name = ?, price = ? WHERE code = ?", (name, price, code))
+            conn.execute("UPDATE products SET description = ?, price = ? WHERE code = ?", (description, price, code))
             conn.commit()
         flash('Produto atualizado com sucesso!')
         return redirect(url_for('index'))

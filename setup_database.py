@@ -6,11 +6,10 @@ def setup_database():
     conn = sqlite3.connect(DATABASE)
     cursor = conn.cursor()
 
-    # Create the products table
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS products (
-        code INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT NOT NULL,
+        code INTEGER PRIMARY KEY,
+        description TEXT NOT NULL,
         price REAL NOT NULL
     )
     ''')
